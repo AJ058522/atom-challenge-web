@@ -8,5 +8,6 @@ body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  overflow-y: scroll;
   background-color: #ffeab1;
 }

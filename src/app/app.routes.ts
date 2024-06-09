@@ -3,7 +3,7 @@ import { Routes } from "@angular/router";
 export const routes: Routes = [
     {
         path: "",
-        redirectTo: "/login",
+        redirectTo: "/dashboard",
         pathMatch: "full"
     },
     {
@@ -14,6 +14,10 @@ export const routes: Routes = [
     {
         path: "login",
         loadComponent: () => import("./modules/auth/pages/login/login.component").then((m) => m.LoginComponent)
-
-    }
+    },
+    {
+        path: "dashboard",
+        // eslint-disable-next-line max-len
+        loadComponent: () => import("./modules/dashboard/pages/dashboard/dashboard.component").then((m) => m.DashboardComponent)
+    },
 ];
