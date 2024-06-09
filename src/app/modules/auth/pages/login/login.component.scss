@@ -1,6 +1,6 @@
 mat-card {
   max-width: 400px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 
@@ -28,5 +28,12 @@ section {
   width: 100%;
   button {
     min-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  mat-card {
+    width: calc(100% - 16px);
+    padding: 20px;
   }
 }
