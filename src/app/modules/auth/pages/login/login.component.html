@@ -1,0 +1,37 @@
+<mat-grid-list cols="1" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-title>Iniciar sesión</mat-card-title>
+
+      <mat-card-content>
+        <form>
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="Correo electrónico"
+            />
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Contraseña"
+            />
+          </mat-form-field>
+
+          <section>
+            <div class="button-row">
+              <button mat-flat-button color="primary" type="submit">
+                Login
+              </button>
+            </div>
+          </section>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
