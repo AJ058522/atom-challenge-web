@@ -20,7 +20,7 @@
           mat-flat-button
           color="primary"
           type="button"
-          (click)="penDialog()"
+          (click)="openDialog()"
         >
           Nueva Terea
         </button>
@@ -29,7 +29,10 @@
 
     <div class="mt-20">
       <h1 class="text-center">Lista de Tareas</h1>
-      <app-tasks-table [update]="updateTable"></app-tasks-table>
+      <app-tasks-table
+        [update]="updateTable"
+        (selectedTask)="updateTask($event)"
+      ></app-tasks-table>
     </div>
   </div>
 </div>

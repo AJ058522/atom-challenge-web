@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title class="mt-20">Tarea</mat-card-title>
+  <mat-card-title class="mt-20">{{ buttonLabel }} Tarea</mat-card-title>
 
   <mat-card-content class="mt-20">
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
@@ -27,7 +27,6 @@
           <input
             matInput
             type="text"
-            formControlName="description"
             placeholder="Descripción"
             formControlName="description"
           />
@@ -43,6 +42,27 @@
         }
       </div>
 
+      @if(data) {
+      <div>
+        <mat-form-field>
+          <mat-label>Estatus</mat-label>
+          <mat-select formControlName="status">
+            @for (status of statusList; track status) {
+            <mat-option [value]="status.value">{{ status.name }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        @if( taskForm.get('status')?.hasError &&
+        (taskForm.get('status')!.touched || taskForm.get('status')!.dirty)) {
+        <div>
+          @if(taskForm.get('status')!.hasError('required')){
+          <div class="inv-feedback">El campo es obligatorio.</div>
+          }
+        </div>
+        }
+      </div>
+      }
+
       <section>
         <div class="button-row">
           <button
@@ -51,7 +71,7 @@
             type="submit"
             [disabled]="!taskForm.valid"
           >
-            Enviar
+            {{ buttonLabel }}
           </button>
         </div>
       </section>

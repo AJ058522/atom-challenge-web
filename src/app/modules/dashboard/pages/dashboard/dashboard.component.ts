@@ -21,8 +21,10 @@ export class DashboardComponent {
 
     constructor(public dialog: MatDialog) {}
 
-    penDialog(): void {
-        const dialogRef = this.dialog.open(TaskFormComponent);
+    openDialog(data: any = undefined): void {
+        const dialogRef = this.dialog.open(TaskFormComponent, {
+            data
+        });
         this.updateTable = false;
 
         dialogRef.afterClosed().subscribe((result) => {
@@ -35,5 +37,9 @@ export class DashboardComponent {
                 this.updateTable = true;
             }
         });
+    }
+
+    updateTask(event: any) {
+        this.openDialog(event);
     }
 }

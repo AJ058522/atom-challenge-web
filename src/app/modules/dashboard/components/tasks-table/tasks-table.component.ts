@@ -1,5 +1,5 @@
 import {
-    Component, Input, OnChanges, OnInit, SimpleChanges
+    Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
@@ -23,6 +23,8 @@ export interface Task {
 })
 export class TasksTableComponent implements OnInit, OnChanges {
     @Input() update: boolean = false;
+    @Output() selectedTask = new EventEmitter<Task>();
+
     displayedColumns: string[] = ["title", "description", "status", "actions"];
     dataSource = [];
 
@@ -30,8 +32,6 @@ export class TasksTableComponent implements OnInit, OnChanges {
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes["update"].previousValue !== changes["update"].currentValue) {
-            console.log("updated");
-
             this.getTasks();
         }
     }
@@ -47,5 +47,15 @@ export class TasksTableComponent implements OnInit, OnChanges {
         }).catch((error) => {
             this.dataSource = [];
         });
+    }
+
+    deleteTask(taskId: string) {
+        this.tasksService.deleteTask(taskId).then((resp: any) => {
+            this.getTasks();
+        });
+    }
+
+    updateTask(task: Task) {
+        this.selectedTask.emit(task);
     }
 }
