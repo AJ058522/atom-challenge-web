@@ -16,8 +16,8 @@ export class AuthService {
         return new Promise((resolve, reject) => {
             const response = this.http.post("auth/login", formData);
 
-            response.subscribe((data) => {
-                this.saveSession(data);
+            response.subscribe((data: any) => {
+                this.saveSession(data.data);
                 this.authenticate();
                 resolve(data);
             }, (err) => { reject(err); });

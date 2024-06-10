@@ -10,7 +10,7 @@ mat-card-content {
 
 mat-form-field {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 mat-card-title {
@@ -26,6 +26,7 @@ section {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 20px;
   button {
     min-width: 200px;
   }

@@ -3,28 +3,37 @@
     <mat-card-title>Iniciar sesión</mat-card-title>
 
     <mat-card-content>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input
             matInput
             type="email"
             formControlName="email"
             placeholder="Correo electrónico"
+            formControlName="email"
           />
         </mat-form-field>
-
-        <mat-form-field>
-          <input
-            matInput
-            type="password"
-            formControlName="password"
-            placeholder="Contraseña"
-          />
-        </mat-form-field>
+        @if( loginForm.get('email')?.hasError &&
+        (loginForm.get('email')!.touched || loginForm.get('email')!.dirty)) {
+        <div>
+          @if(loginForm.get('email')!.hasError('required')){
+          <div class="inv-feedback">El campo es obligatorio.</div>
+          } @if(loginForm.get('email')!.hasError('email')){
+          <div class="inv-feedback">Debe ser un email válido.</div>
+          }
+        </div>
+        }
 
         <section>
           <div class="button-row">
-            <button mat-flat-button color="primary" type="submit">Login</button>
+            <button
+              mat-flat-button
+              color="primary"
+              type="submit"
+              [disabled]="!loginForm.valid"
+            >
+              Login
+            </button>
           </div>
         </section>
       </form>
