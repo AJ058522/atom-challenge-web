@@ -1,3 +1,9 @@
 table {
   width: 100%;
+  min-width: 500px;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
 }
