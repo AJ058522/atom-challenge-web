@@ -12,16 +12,9 @@
             formControlName="email"
           />
         </mat-form-field>
-        @if( loginForm.get('email')?.hasError &&
-        (loginForm.get('email')!.touched || loginForm.get('email')!.dirty)) {
-        <div>
-          @if(loginForm.get('email')!.hasError('required')){
-          <div class="inv-feedback">El campo es obligatorio.</div>
-          } @if(loginForm.get('email')!.hasError('email')){
-          <div class="inv-feedback">Debe ser un email válido.</div>
-          }
-        </div>
-        }
+        <app-validator-feedback
+          [control]="loginForm.get('email')"
+        ></app-validator-feedback>
 
         <section>
           <div class="button-row">

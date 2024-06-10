@@ -1,0 +1,17 @@
+:host {
+  --fontColor: #eb445a;
+  --fontW: normal;
+}
+
+.ajlb-feedback-div {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  font-weight: var(--fontW);
+  color: var(--fontColor);
+}
+
+.ajlb-feedback-div p {
+  margin: 0px;
+  padding: 0px;
+}

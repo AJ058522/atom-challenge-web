@@ -11,6 +11,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { TasksService } from "@app/modules/dashboard/services/tasks.service";
+import {
+    ValidatorFeedbackComponent
+} from "@app/modules/shared/components/validator-feedback/validator-feedback.component";
 
 @Component({
     selector: "app-task-form",
@@ -22,7 +25,8 @@ import { TasksService } from "@app/modules/dashboard/services/tasks.service";
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
-        MatSelectModule
+        MatSelectModule,
+        ValidatorFeedbackComponent
     ],
     templateUrl: "./task-form.component.html",
     styleUrl: "./task-form.component.scss"

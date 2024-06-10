@@ -1,0 +1,35 @@
+@if(control?.dirty && control?.touched) {
+<div class="ajlb-feedback-div">
+  @if(control?.hasError('required') || control?.hasError('requiredTrue')) {
+  <p>Este campo es obligatorio.</p>
+  } @if(control?.hasError('email')) {
+  <p>Este campo debe contener un email válido.</p>
+  } @if(control?.hasError('maxlength')) {
+  <p>
+    Máximo de caracteres excedido por
+    {{
+      (control?.errors)!["maxlength"].actualLength -
+        (control?.errors)!["maxlength"].requiredLength
+    }}
+  </p>
+  } @if(control?.hasError('minlength')) {
+  <p>
+    Mínimo de caracteres no alcanzado por
+    {{
+      (control?.errors)!["minlength"].actualLength -
+        (control?.errors)!["minlength"].requiredLength
+    }}
+  </p>
+  } @if(control?.hasError('noMatch')) {
+  <p>Las contraseñas no coinciden.</p>
+  } @if(control?.hasError('pattern')) {
+  <p>{{ patternText }}</p>
+  }
+</div>
+} @if(customMessage) {
+<div class="ajlb-feedback-div">
+  <p>
+    {{ customMessage }}
+  </p>
+</div>
+}

@@ -3,7 +3,7 @@
 
   <mat-card-content class="mt-20">
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-      <div>
+      <div class="mb-20">
         <mat-form-field>
           <input
             matInput
@@ -12,17 +12,12 @@
             formControlName="title"
           />
         </mat-form-field>
-        @if( taskForm.get('title')?.hasError && (taskForm.get('title')!.touched
-        || taskForm.get('title')!.dirty)) {
-        <div>
-          @if(taskForm.get('title')!.hasError('required')){
-          <div class="inv-feedback">El campo es obligatorio.</div>
-          }
-        </div>
-        }
+        <app-validator-feedback
+          [control]="taskForm.get('title')"
+        ></app-validator-feedback>
       </div>
 
-      <div>
+      <div class="mb-20">
         <mat-form-field>
           <input
             matInput
@@ -31,19 +26,13 @@
             formControlName="description"
           />
         </mat-form-field>
-        @if( taskForm.get('description')?.hasError &&
-        (taskForm.get('description')!.touched ||
-        taskForm.get('description')!.dirty)) {
-        <div>
-          @if(taskForm.get('description')!.hasError('required')){
-          <div class="inv-feedback">El campo es obligatorio.</div>
-          }
-        </div>
-        }
+        <app-validator-feedback
+          [control]="taskForm.get('description')"
+        ></app-validator-feedback>
       </div>
 
       @if(data) {
-      <div>
+      <div class="mb-20">
         <mat-form-field>
           <mat-label>Estatus</mat-label>
           <mat-select formControlName="status">
@@ -52,14 +41,9 @@
             }
           </mat-select>
         </mat-form-field>
-        @if( taskForm.get('status')?.hasError &&
-        (taskForm.get('status')!.touched || taskForm.get('status')!.dirty)) {
-        <div>
-          @if(taskForm.get('status')!.hasError('required')){
-          <div class="inv-feedback">El campo es obligatorio.</div>
-          }
-        </div>
-        }
+        <app-validator-feedback
+          [control]="taskForm.get('status')"
+        ></app-validator-feedback>
       </div>
       }
 

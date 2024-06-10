@@ -12,6 +12,7 @@ import { MatInputModule } from "@angular/material/input";
 import { Router } from "@angular/router";
 import { LoginDialogComponent } from "@app/modules/auth/components/login-dialog/login-dialog.component";
 import { AuthService } from "@app/modules/auth/services/auth.service";
+import { ValidatorFeedbackComponent } from "@app/modules/shared/components/validator-feedback/validator-feedback.component";
 
 @Component({
     selector: "app-login",
@@ -23,7 +24,8 @@ import { AuthService } from "@app/modules/auth/services/auth.service";
         MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
-        LoginDialogComponent
+        LoginDialogComponent,
+        ValidatorFeedbackComponent
     ],
     templateUrl: "./login.component.html",
     styleUrl: "./login.component.scss"
