@@ -5,6 +5,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
 import { TasksService } from "@app/modules/dashboard/services/tasks.service";
 
+import { StatusDirective } from "../../directives/status.directive";
+
 export interface Task {
     title: string;
     description: string;
@@ -18,7 +20,7 @@ export interface Task {
 @Component({
     selector: "app-tasks-table",
     standalone: true,
-    imports: [MatTableModule, MatIconModule],
+    imports: [MatTableModule, MatIconModule, StatusDirective],
     templateUrl: "./tasks-table.component.html",
     styleUrl: "./tasks-table.component.scss"
 })
