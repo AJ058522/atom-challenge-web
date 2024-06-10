@@ -19,8 +19,8 @@ export const routes: Routes = [
     },
     {
         path: "dashboard",
-        // eslint-disable-next-line max-len
-        loadComponent: () => import("./modules/dashboard/pages/dashboard/dashboard.component").then((m) => m.DashboardComponent),
+        loadComponent: () => import("./modules/dashboard/pages/dashboard/dashboard.component")
+            .then((m) => m.DashboardComponent),
         canActivate: [AuthGuard]
     },
 ];
