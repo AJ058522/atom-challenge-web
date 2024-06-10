@@ -1,0 +1,41 @@
+mat-card {
+  height: 420px;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+mat-card-content {
+  padding: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+section {
+  display: flex;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  button {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  mat-card {
+    width: calc(100% - 16px);
+    padding: 20px;
+  }
+}

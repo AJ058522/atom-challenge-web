@@ -19,3 +19,18 @@ mat-toolbar {
   flex: 1;
   padding: 20px;
 }
+
+section {
+  display: flex;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
+  button {
+    min-width: 200px;
+  }
+}

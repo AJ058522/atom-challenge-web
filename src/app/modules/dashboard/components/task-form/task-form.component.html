@@ -1,0 +1,60 @@
+<mat-card>
+  <mat-card-title class="mt-20">Tarea</mat-card-title>
+
+  <mat-card-content class="mt-20">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="Título"
+            formControlName="title"
+          />
+        </mat-form-field>
+        @if( taskForm.get('title')?.hasError && (taskForm.get('title')!.touched
+        || taskForm.get('title')!.dirty)) {
+        <div>
+          @if(taskForm.get('title')!.hasError('required')){
+          <div class="inv-feedback">El campo es obligatorio.</div>
+          }
+        </div>
+        }
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            formControlName="description"
+            placeholder="Descripción"
+            formControlName="description"
+          />
+        </mat-form-field>
+        @if( taskForm.get('description')?.hasError &&
+        (taskForm.get('description')!.touched ||
+        taskForm.get('description')!.dirty)) {
+        <div>
+          @if(taskForm.get('description')!.hasError('required')){
+          <div class="inv-feedback">El campo es obligatorio.</div>
+          }
+        </div>
+        }
+      </div>
+
+      <section>
+        <div class="button-row">
+          <button
+            mat-flat-button
+            color="primary"
+            type="submit"
+            [disabled]="!taskForm.valid"
+          >
+            Enviar
+          </button>
+        </div>
+      </section>
+    </form>
+  </mat-card-content>
+</mat-card>
