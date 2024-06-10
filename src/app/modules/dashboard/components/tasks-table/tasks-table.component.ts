@@ -12,6 +12,7 @@ export interface Task {
     taskId: string;
     userId: string;
     created_at: any;
+    formatted_date: string;
 }
 
 @Component({
@@ -25,7 +26,7 @@ export class TasksTableComponent implements OnInit, OnChanges {
     @Input() update: boolean = false;
     @Output() selectedTask = new EventEmitter<Task>();
 
-    displayedColumns: string[] = ["title", "description", "status", "actions"];
+    displayedColumns: string[] = ["title", "description", "status", "formatted_date", "actions"];
     dataSource = [];
 
     constructor(private tasksService: TasksService) {}

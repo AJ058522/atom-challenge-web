@@ -7,3 +7,11 @@ table {
   width: 100%;
   overflow-x: auto;
 }
+
+.container {
+  overflow-y: hidden;
+}
+
+table .text-right {
+  text-align: right;
+}

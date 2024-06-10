@@ -1,23 +1,21 @@
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-mat-toolbar {
+.content {
+  flex: 1;
+  margin: 20px;
+}
+
+.toolbar-content {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
-}
 
-.content {
-  flex: 1;
-  padding: 20px;
+  width: 100%;
 }
 
 section {

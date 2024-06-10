@@ -4,15 +4,15 @@ import {
     MatDialog,
 } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
-import { MatToolbarModule } from "@angular/material/toolbar";
 
+import { DashboardToolbarComponent } from "../../components/dashboard-toolbar/dashboard-toolbar.component";
 import { TaskFormComponent } from "../../components/task-form/task-form.component";
 import { TasksTableComponent } from "../../components/tasks-table/tasks-table.component";
 
 @Component({
     selector: "app-dashboard",
     standalone: true,
-    imports: [MatIconModule, MatButtonModule, MatToolbarModule, TasksTableComponent, TaskFormComponent],
+    imports: [MatIconModule, MatButtonModule, TasksTableComponent, TaskFormComponent, DashboardToolbarComponent],
     templateUrl: "./dashboard.component.html",
     styleUrl: "./dashboard.component.scss"
 })
